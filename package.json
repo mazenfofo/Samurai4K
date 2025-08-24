@@ -1,0 +1,35 @@
+{
+  "name": "samurai4k-media-player",
+  "version": "1.0.0",
+  "description": "Premium 4K Media Player for Live TV, Movies, and Series",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8080",
+    "build": "echo 'Build process not needed for static site'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "media-player",
+    "streaming",
+    "live-tv",
+    "movies",
+    "series",
+    "4k",
+    "hls"
+  ],
+  "author": "Samurai4K Team",
+  "license": "MIT",
+  "dependencies": {
+    "hls.js": "^1.4.10"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samurai4k/media-player.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samurai4k/media-player/issues"
+  },
+  "homepage": "https://samurai4k.github.io/media-player"
+}
