@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samurai Plus 4K - M3U Player</title>
+    <meta name="description" content="Advanced M3U Player with 4K Support - Dark Red & Glossy Black Theme">
+    <meta name="author" content="Samurai Plus 4K">
+    <meta name="keywords" content="M3U, player, 4K, streaming, IPTV, media">
+    
+    <!-- Favicon and manifest -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="manifest" href="./manifest.json">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- PWA meta tags -->
+    <meta name="theme-color" content="#8B0000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Samurai Plus 4K">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                <h1>SAMURAI PLUS 4K</h1>
+            </div>
+            <div class="controls-header">
+                <button id="settingsBtn" class="btn-icon" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button id="fullscreenBtn" class="btn-icon" title="Fullscreen">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Video Player Section -->
+            <div class="player-section">
+                <div class="video-container">
+                    <video id="videoPlayer" controls>
+                        <source src="" type="application/x-mpegURL">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay" id="videoOverlay">
+                        <div class="play-button" id="playButton">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Player Controls -->
+                <div class="player-controls">
+                    <div class="control-row">
+                        <button id="prevBtn" class="control-btn">
+                            <i class="fas fa-backward"></i>
+                        </button>
+                        <button id="playPauseBtn" class="control-btn main-control">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button id="nextBtn" class="control-btn">
+                            <i class="fas fa-forward"></i>
+                        </button>
+                        <div class="volume-control">
+                            <button id="muteBtn" class="control-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <input type="range" id="volumeSlider" class="slider" min="0" max="100" value="80">
+                        </div>
+                        <div class="time-display">
+                            <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <input type="range" id="progressBar" class="progress-slider" min="0" max="100" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- M3U File Input -->
+                <div class="input-section">
+                    <h3>Load M3U Playlist</h3>
+                    <div class="input-group">
+                        <input type="file" id="m3uFileInput" accept=".m3u,.m3u8" class="file-input">
+                        <label for="m3uFileInput" class="file-label">
+                            <i class="fas fa-upload"></i>
+                            Choose File
+                        </label>
+                    </div>
+                    <div class="input-group">
+                        <input type="url" id="m3uUrlInput" placeholder="Or enter M3U URL..." class="url-input">
+                        <button id="loadUrlBtn" class="btn-primary">
+                            <i class="fas fa-download"></i>
+                            Load URL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Playlist -->
+                <div class="playlist-section">
+                    <h3>Playlist <span id="playlistCount">(0)</span></h3>
+                    <div class="playlist-controls">
+                        <button id="shuffleBtn" class="btn-small">
+                            <i class="fas fa-random"></i>
+                            Shuffle
+                        </button>
+                        <button id="repeatBtn" class="btn-small">
+                            <i class="fas fa-redo"></i>
+                            Repeat
+                        </button>
+                    </div>
+                    <ul id="playlist" class="playlist"></ul>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button class="modal-close" id="closeSettings">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label>Video Quality:</label>
+                        <select id="qualitySelect">
+                            <option value="auto">Auto</option>
+                            <option value="1080p">1080p</option>
+                            <option value="720p">720p</option>
+                            <option value="480p">480p</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label>Autoplay Next:</label>
+                        <input type="checkbox" id="autoplayNext" checked>
+                    </div>
+                    <div class="setting-group">
+                        <label>Show Thumbnails:</label>
+                        <input type="checkbox" id="showThumbnails" checked>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loading-indicator">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>

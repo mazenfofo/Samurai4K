@@ -1,0 +1,26 @@
+{
+    "name": "Samurai Plus 4K",
+    "short_name": "Samurai4K",
+    "description": "Advanced M3U Player with 4K Support",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#0a0a0a",
+    "theme_color": "#8B0000",
+    "icons": [
+        {
+            "src": "./favicon.ico",
+            "sizes": "64x64",
+            "type": "image/x-icon"
+        }
+    ],
+    "categories": ["entertainment", "multimedia"],
+    "screenshots": [
+        {
+            "src": "./favicon.ico",
+            "type": "image/x-icon",
+            "sizes": "64x64"
+        }
+    ]
+}

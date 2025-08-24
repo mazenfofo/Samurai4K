@@ -1,0 +1,9 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="Sample Channel 1" tvg-logo="" group-title="Entertainment",Sample Channel 1
+https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4
+#EXTINF:-1 tvg-id="" tvg-name="Sample Channel 2" tvg-logo="" group-title="News",Sample Channel 2
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+#EXTINF:-1 tvg-id="" tvg-name="Sample HLS Stream" tvg-logo="" group-title="Live",Sample HLS Stream
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="Another Sample" tvg-logo="" group-title="Movies",Another Sample
+https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
